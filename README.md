@@ -1,6 +1,6 @@
 # ABOUT 
 
-Google updated their ReCaptcha service, changing its API.  The update significantly
+In late 2014, Google updated their ReCaptcha service, changing its API.  The update significantly
 changes the appearance and function of ReCaptcha.  This has been referred to as
 ReCaptcha 2 or "nocaptcha recaptcha". 
 
