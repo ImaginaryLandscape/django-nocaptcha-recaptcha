@@ -50,8 +50,8 @@ Add the following to settings.py
         Default is https://www.google.com/recaptcha/api/siteverify
     NORECAPTCHA_WIDGET_TEMPLATE (string) = location for the widget template.  
         Default is nocaptcha_recaptcha/widget.html
-    
-   
+
+
 Add the field to a form that you want to protect.
 
 	from nocaptcha_recaptcha.fields import NoReCaptchaField
@@ -60,7 +60,13 @@ Add the field to a form that you want to protect.
 	    .....
 	    captcha = NoReCaptchaField()
 	    
-	    
+
+Add Google's JavaScript library to your base template or elsewhere, so it is
+available on the page containing the django form.
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>	    
+
+
 (optional)
 You can customize the field.  
 	
