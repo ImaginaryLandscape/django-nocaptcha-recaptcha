@@ -132,7 +132,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     # Only needed for running unit tests
-    'nocaptcha', 
+    'nocaptcha_recaptcha', 
     'django_nose', 
 )
 

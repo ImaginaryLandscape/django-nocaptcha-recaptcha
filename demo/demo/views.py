@@ -1,7 +1,7 @@
 from django.views.generic import FormView
 from django import forms
 from django.core.urlresolvers import reverse_lazy
-from nocaptcha.fields import NoReCaptchaField
+from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 class DemoForm(forms.Form):
     username = forms.CharField(required=True)

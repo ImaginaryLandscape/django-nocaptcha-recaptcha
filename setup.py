@@ -18,10 +18,11 @@ setup(
     include_package_data=True,
     classifiers=[
         "Framework :: Django",
-        "Programming Language :: Python",
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
         "Intended Audience :: Developers",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",        
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
     zip_safe=False,
