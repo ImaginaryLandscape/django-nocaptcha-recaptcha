@@ -72,10 +72,13 @@ You can customize the field.
 The demo project includes a fully working example of this module. 
 To use it, run the following:
  
-   cd demo
-   export NORECAPTCHA_SITE_KEY="<your site key>"
-   export NORECAPTCHA_SECRET_KEY="<your secret key>"
-   ./manage.py runserver 
+    cd demo
+    export NORECAPTCHA_SITE_KEY="<your site key>"
+    export NORECAPTCHA_SECRET_KEY="<your secret key>"
+    ./manage.py runserver 
    
-   # in a browser, visit http://localhost:8000
+    # in a browser, visit http://localhost:8000
      
+# TESTING
+
+    python setup.py test
