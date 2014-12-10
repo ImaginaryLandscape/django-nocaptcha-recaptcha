@@ -54,7 +54,7 @@ Add the following to settings.py
    
 Add the field to a form that you want to protect.
 
-	from nocaptcha.fields import NoReCaptchaField
+	from nocaptcha_recaptcha.fields import NoReCaptchaField
 	
 	class DemoForm(forms.Form):
 	    .....
