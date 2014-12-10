@@ -16,8 +16,7 @@ logger = logging.getLogger(__name__)
 
 DEFAULT_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify"
 DEFAULT_FALLBACK_URL = "https://www.google.com/recaptcha/api/fallback"
-DEFAULT_WIDGET_TEMPLATE = 'nocaptcha/widget.html'
-DEFAULT_WIDGET_TEMPLATE_AJAX = 'nocaptcha/widget_ajax.html'
+DEFAULT_WIDGET_TEMPLATE = 'nocaptcha_recaptcha/widget.html'
 
 VERIFY_URL = getattr(settings, "NORECAPTCHA_VERIFY_URL",
                      DEFAULT_VERIFY_URL)
@@ -25,13 +24,8 @@ VERIFY_URL = getattr(settings, "NORECAPTCHA_VERIFY_URL",
 FALLBACK_URL = getattr(settings, "NORECAPTCHA_FALLBACK_URL",
                        DEFAULT_FALLBACK_URL)
 
-
-if getattr(settings, "CAPTCHA_AJAX", False):
-    WIDGET_TEMPLATE = getattr(settings, "NORECAPTCHA_WIDGET_TEMPLATE",
-                              DEFAULT_WIDGET_TEMPLATE_AJAX)
-else:
-    WIDGET_TEMPLATE = getattr(settings, "NORECAPTCHA_WIDGET_TEMPLATE",
-                              DEFAULT_WIDGET_TEMPLATE)
+WIDGET_TEMPLATE = getattr(settings, "NORECAPTCHA_WIDGET_TEMPLATE",
+                          DEFAULT_WIDGET_TEMPLATE)
 
 
 class RecaptchaResponse(object):

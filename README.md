@@ -44,7 +44,7 @@ Add the following to settings.py
         Best to leave this as the default setting.
         Default is https://www.google.com/recaptcha/api/siteverify
     NORECAPTCHA_WIDGET_TEMPLATE (string) = location for the widget template.  
-        Default is nocaptcha/widget.html
+        Default is nocaptcha_recaptcha/widget.html
     
    
 Add the field to a form that you want to protect.
