@@ -1,7 +1,7 @@
 # SUMMARY
 
 Add new-style Google ReCaptcha widgets to your Django forms simply by adding a 
-NoReCaptchaField field said forms. 
+NoReCaptchaField field to said forms. 
 
 # ABOUT 
 
