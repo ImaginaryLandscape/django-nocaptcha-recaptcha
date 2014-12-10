@@ -9,6 +9,7 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
+from django.utils.encoding import force_text
 
 from ._compat import want_bytes, urlencode, Request, urlopen, PY2
 
@@ -89,7 +90,8 @@ def submit(g_nocaptcha_response_value, secret_key, remoteip):
     httpresp = urlopen(req)
 
     try:
-        return_values = json.loads(httpresp.read())
+        res = force_text(httpresp.read())
+        return_values = json.loads(res)
     except (ValueError, TypeError):
         return RecaptchaResponse(
             is_valid=False,

@@ -28,7 +28,7 @@ The original django-recaptcha project is located at the following location:
  - Easy to add to a Form via a FormField
  - Works similar to django-recaptcha 
  - Working demo projects
-
+ - Works with Python 2.7 and 3.4
 
 # INSTALL
 
