@@ -61,10 +61,9 @@ class NoReCaptchaField(forms.CharField):
     def clean(self, value):
         super(NoReCaptchaField, self).clean(value)
         g_nocaptcha_response_value = smart_unicode(value)
-
         if os.environ.get('NORECAPTCHA_TESTING', None) == 'True' and \
                 g_nocaptcha_response_value == 'PASSED':
-            return values
+            return value
 
         check_captcha = client.submit(
             g_nocaptcha_response_value, secret_key=self.secret_key,
