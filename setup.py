@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 setup(
     name='django-nocaptcha-recaptcha',
-    version='0.0.2',
+    version='0.0.3',
     description='Django nocaptcha recaptcha form field/widget app.',
     long_description=open('README.md', 'r').read(),
     author='Imaginary Landscape',
