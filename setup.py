@@ -1,10 +1,14 @@
-
+import os
 from setuptools import setup, find_packages
+
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
 setup(
     name='django-nocaptcha-recaptcha',
-    version='0.0.6',
+    version='0.0.7',
     description='Django nocaptcha recaptcha form field/widget app.',
-    long_description=open('README.md', 'r').read(),
+    long_description=read('README.md', 'r'),
     author='Imaginary Landscape',
     author_email='jjasinski@imgescape.com',
     keywords = ['django', 'recaptcha', 'field', 'nocaptcha'],

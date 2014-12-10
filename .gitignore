@@ -45,3 +45,4 @@ docs/_build/
 # PyBuilder
 target/
 *.sqlite3
+pep8.txt
