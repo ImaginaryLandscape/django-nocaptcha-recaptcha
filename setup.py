@@ -8,7 +8,7 @@ setup(
     name='django-nocaptcha-recaptcha',
     version='0.0.7',
     description='Django nocaptcha recaptcha form field/widget app.',
-    long_description=read('README.md', 'r'),
+    long_description=read('README.md'),
     author='Imaginary Landscape',
     author_email='jjasinski@imgescape.com',
     keywords = ['django', 'recaptcha', 'field', 'nocaptcha'],
