@@ -3,10 +3,10 @@ from setuptools import setup, find_packages
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
-
+print("JJJ", find_packages())
 setup(
     name='django-nocaptcha-recaptcha',
-    version='0.0.13',
+    version='0.0.14',
     description='Django nocaptcha recaptcha form field/widget app.',
     long_description=read('README.md'),
     author='Imaginary Landscape',

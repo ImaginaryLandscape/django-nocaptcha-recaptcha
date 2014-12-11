@@ -1,1 +1,10 @@
-global-include *.txt *.py *.md *.html *.js *.css LICENSE
+global-include LICENSE README.md setup.py LICENSE MANIFEST.in
+include LICENSE
+include README.md
+include MANIFEST.in
+include setup.py
+include test_settings.py
+recursive-include demo *
+recursive-include nocaptcha_recaptcha *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
