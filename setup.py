@@ -1,8 +1,10 @@
 import os
 from setuptools import setup, find_packages
 
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
 
 setup(
     name='django-nocaptcha-recaptcha',
@@ -11,7 +13,7 @@ setup(
     long_description=read('README.md'),
     author='Imaginary Landscape',
     author_email='jjasinski@imgescape.com',
-    keywords = ['django', 'recaptcha', 'field', 'nocaptcha'],
+    keywords=['django', 'recaptcha', 'field', 'nocaptcha'],
     license='BSD',
     url='https://github.com/ImaginaryLandscape/django-nocaptcha-recaptcha',
     packages=find_packages(),

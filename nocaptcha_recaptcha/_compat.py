@@ -8,6 +8,7 @@ if PY2:
 else:
     from urllib.request import Request, urlopen
     from urllib.parse import urlencode
+
     text_type = str
 
 
