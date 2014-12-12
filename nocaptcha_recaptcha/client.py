@@ -1,5 +1,7 @@
 import logging
+
 import django
+
 if django.VERSION[1] >= 5:
     import json
 else:
@@ -7,7 +9,6 @@ else:
 
 from django.conf import settings
 from django.template.loader import render_to_string
-from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
 from django.utils.encoding import force_text
 
@@ -46,11 +47,12 @@ def displayhtml(site_key, gtag_attrs, js_params):
 
     return render_to_string(
         WIDGET_TEMPLATE,
-        {'fallback_url': FALLBACK_URL,
-         'site_key': site_key,
-         'js_params': js_params,
-         'gtag_attrs': gtag_attrs,
-         })
+        {
+            'fallback_url': FALLBACK_URL,
+            'site_key': site_key,
+            'js_params': js_params,
+            'gtag_attrs': gtag_attrs,
+        })
 
 
 def submit(g_nocaptcha_response_value, secret_key, remoteip):
@@ -72,8 +74,8 @@ def submit(g_nocaptcha_response_value, secret_key, remoteip):
 
     params = urlencode({
         'secret': want_bytes(secret_key),
-        'remoteip':  want_bytes(remoteip),
-        'response':  want_bytes(g_nocaptcha_response_value),
+        'remoteip': want_bytes(remoteip),
+        'response': want_bytes(g_nocaptcha_response_value),
     })
 
     if not PY2:
@@ -109,7 +111,7 @@ def submit(g_nocaptcha_response_value, secret_key, remoteip):
     error_codes = return_values.get('error-codes', [])
     logger.debug("%s - %s" % (return_code, error_codes))
 
-    if (return_code is True):
+    if return_code is True:
         return RecaptchaResponse(is_valid=True)
     else:
         return RecaptchaResponse(is_valid=False, error_codes=error_codes)

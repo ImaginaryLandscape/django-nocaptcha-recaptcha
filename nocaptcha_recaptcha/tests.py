@@ -1,7 +1,9 @@
 import os
+import json
+
 from django.forms import Form
 from django.test import TestCase
-import json
+
 import mock
 
 from nocaptcha_recaptcha import fields, client

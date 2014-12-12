@@ -1,14 +1,14 @@
 <html>
-  <head>
+<head>
     <title>reCAPTCHA demo: Simple page</title>
-     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </head>
-  <body>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
 
-	<form method="post" action=".">{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit">Submit</button>
-	</form>
+<form method="post" action=".">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
 
-  </body>
+</body>
 </html>
