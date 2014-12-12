@@ -10,4 +10,9 @@ env:
   - DJANGO=1.6
   - DJANGO=1.7
 
-script: python setup.py test 
+install:
+  - pip install -q -e .
+  - pip install django 
+
+script: 
+  - python setup.py test 
