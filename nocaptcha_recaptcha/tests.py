@@ -41,7 +41,8 @@ class TestCase(TestCase):
         Should return True if response is correct
         """
         mock_resp = mock.Mock()
-        mock_resp.read.return_value = json.dumps({'success': True, 'error-codes': []})
+        mock_resp.read.return_value = json.dumps(
+            {'success': True, 'error-codes': []})
         mock_urlopen.return_value = mock_resp
         result = client.submit('a', 'a', 'a')
         self.assertTrue(result.is_valid)
@@ -65,7 +66,8 @@ class TestCase(TestCase):
         Should return false if response is incorrect
         """
         mock_resp = mock.Mock()
-        mock_resp.read.return_value = json.dumps({'success': False, 'error-codes': ['ERROR']})
+        mock_resp.read.return_value = json.dumps(
+            {'success': False, 'error-codes': ['ERROR']})
         mock_urlopen.return_value = mock_resp
         result = client.submit('a', 'a', 'a')
         self.assertFalse(result.is_valid)
