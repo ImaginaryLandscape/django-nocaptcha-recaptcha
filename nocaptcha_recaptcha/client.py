@@ -107,7 +107,7 @@ def submit(g_nocaptcha_response_value, secret_key, remoteip):
 
     return_code = return_values.get("success", False)
     error_codes = return_values.get('error-codes', [])
-    logging.debug(return_code, error_codes)
+    logger.debug("%s - %s" % (return_code, error_codes))
 
     if (return_code is True):
         return RecaptchaResponse(is_valid=True)
