@@ -5,14 +5,14 @@ python:
   - 3.4
 
 env:
-  - DJANGO=1.4
-  - DJANGO=1.5
-  - DJANGO=1.6
-  - DJANGO=1.7
+  - DJANGO=1.4.16
+  - DJANGO=1.5.11
+  - DJANGO=1.6.8
+  - DJANGO=1.7.1
 
 install:
-  - pip install -q -e .
-  - pip install django 
+  - pip install Django==$DJANGO
+  - pip install -e .
 
 script: 
   - python setup.py test 
