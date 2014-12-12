@@ -17,6 +17,7 @@ setup(
     packages=find_packages(),
     tests_require=[
         'django-setuptest>=0.1',
+        'mock',
     ],
     test_suite="setuptest.setuptest.SetupTestSuite",
     include_package_data=True,
