@@ -10,6 +10,11 @@ env:
   - DJANGO=1.6.8
   - DJANGO=1.7.1
 
+matrix:
+  exclude:
+    - python: 2.7
+      env: DJANGO=1.4.16
+
 install:
   - pip install Django==$DJANGO
   - pip install -e .
