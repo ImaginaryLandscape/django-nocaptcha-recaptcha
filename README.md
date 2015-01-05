@@ -29,6 +29,7 @@ The original django-recaptcha project is located at the following location:
  - Uses the fallback option for browsers without JavaScript
  - Easy to add to a Form via a FormField
  - Works similar to django-recaptcha 
+ - Supports multiple recaptchas per page (requires JavaScript)
  - Working demo projects
  - Works with Python 2.7 and 3.4
 
@@ -63,10 +64,13 @@ Add the field to a form that you want to protect.
 	    captcha = NoReCaptchaField()
 	    
 
-Add Google's JavaScript library to your base template or elsewhere, so it is
-available on the page containing the django form.
+Add this template tag to your base template or elsewhere, so that Google's JavaScript library is available on the page containing the django form.
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>	    
+    # For a single recaptcha on a page:
+    {% include 'nocaptcha_recaptcha/script_include.html' %}
+
+    # For multiple recaptchas on the same page:
+    {% include 'nocaptcha_recaptcha/script_include.html' with multiple_recaptcha=True %}
 
 
 (optional)

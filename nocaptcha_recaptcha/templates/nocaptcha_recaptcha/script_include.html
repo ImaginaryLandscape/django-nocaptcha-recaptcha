@@ -1,0 +1,24 @@
+<script src="https://www.google.com/recaptcha/api.js{% if multiple_recaptcha %}?onload=recaptchaCallBack&amp;render=explicit{% endif %}" async defer></script>
+{% if multiple_recaptcha %}
+<script type="text/javascript">
+function remove_noscript(el) {
+    {# If JavaScript is enabled, remove the sibling <noscript> since its child <textarea> will contain duplicate ids in the DOM #}
+    while (el.nodeName.toLowerCase() != "noscript") {
+        el = el.nextSibling;
+        if (el == null) break;
+    }
+    if (el) el.parentNode.removeChild(el);
+}
+function render_captcha(el, i) {
+    remove_noscript(el);
+    if ( !el.hasAttribute("id") ) el.id = "nocaptcha-recaptcha-" + (i + 1);
+    grecaptcha.render(el.id, {"sitekey": el.getAttribute("data-sitekey")});
+}
+function recaptchaCallBack() {
+    var captcha_divs = document.getElementsByClassName("g-recaptcha");
+    for(var n = 0; n < captcha_divs.length; n++) {
+        render_captcha(captcha_divs[n], n);
+    }
+}
+</script>
+{% endif %}
