@@ -1,6 +1,4 @@
-import pkg_resources
-
-__version__ = pkg_resources.require("django-nocaptcha-recaptcha")[0].version
+__version__ = '0.0.18'
 
 from .fields import NoReCaptchaField
 from .widgets import NoReCaptchaWidget
