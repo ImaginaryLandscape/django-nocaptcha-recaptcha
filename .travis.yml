@@ -9,6 +9,7 @@ env:
   - DJANGO=1.5.11
   - DJANGO=1.6.8
   - DJANGO=1.7.1
+  - DJANGO=1.8.11
 
 matrix:
   exclude:
