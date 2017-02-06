@@ -25,6 +25,8 @@ matrix:
       env: DJANGO=1.4.16
 
 install:
+  - pip install pip --upgrade
+  - pip install setuptools --upgrade
   - pip install Django==$DJANGO
   - pip install -e .
 
