@@ -19,6 +19,10 @@ matrix:
   exclude:
     - python: 3.4
       env: DJANGO=1.4.16
+    - python: 3.5
+      env: DJANGO=1.4.16
+    - python: 3.6
+      env: DJANGO=1.4.16
 
 install:
   - pip install Django==$DJANGO
