@@ -167,7 +167,6 @@ INSTALLED_APPS = (
 
     # Only needed for running unit tests
     'nocaptcha_recaptcha',
-    'django_nose',
 )
 
 
