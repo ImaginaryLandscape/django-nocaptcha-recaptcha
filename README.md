@@ -2,14 +2,14 @@
 
 # SUMMARY
 
-Add new-style Google ReCaptcha widgets to your Django forms simply by adding a 
+Add new-style Google reCAPTCHA V2 or Invisible reCAPTCHA widgets to your Django forms simply by adding a 
 NoReCaptchaField field to said forms. 
 
 # ABOUT 
 
 In late 2014, Google updated their ReCaptcha service, changing its API.  The update significantly
 changes the appearance and function of ReCaptcha.  This has been referred to as
-ReCaptcha 2 or "nocaptcha recaptcha". 
+ReCaptcha 2 or "nocaptcha recaptcha". In early 2017, Google added the Invisible reCAPTCHA.
 
 This module is intended to be a successor to django-recaptcha to support the new style 
 Google Recaptcha.  It borrows a lot of the logic from the django-recaptcha, but has been
@@ -25,7 +25,8 @@ The original django-recaptcha project is located at the following location:
 
 # FEATURES
 
- - Implements Google's New "NoCaptcha ReCaptcha Field"
+ - Implements Google's new "NoCaptcha ReCaptcha Field"
+ - Implements Google's new "Invisible reCAPTCHA" 
  - Uses the fallback option for browsers without JavaScript
  - Easy to add to a Form via a FormField
  - Works similar to django-recaptcha 
@@ -56,12 +57,41 @@ Add the following to settings.py
 
 Add the field to a form that you want to protect.
 
+## reCAPTCHA V2
+
 	from nocaptcha_recaptcha.fields import NoReCaptchaField
 	
 	class DemoForm(forms.Form):
 	    .....
-	    captcha = NoReCaptchaField()
-	    
+	    captcha = NoReCaptchaField()  # reCAPTCHA V2
+        
+
+## Invisible reCAPTCHA
+
+First, you'll need to assign a unique ID to your form and submit button in the form template.
+
+    from nocaptcha_recaptcha.fields import NoReCaptchaField
+    from nocaptcha_recaptcha.widgets import InvisibleReCaptchaWidget
+	
+	class DemoForm(forms.Form):
+	    .....
+        captcha = NoReCaptchaField(
+            gtag_attrs={
+                'callback': 'onSubmit',  # name of JavaScript callback function
+                'bind': 'submit-button'  # submit button's ID in the form template
+            },
+            widget=InvisibleReCaptchaWidget
+        )
+
+If you're using the Invisible reCAPTCHA, you'll also need to
+[set up a callback using JavaScript](https://developers.google.com/recaptcha/docs/invisible):
+
+    <script>
+        function onSubmit(token) {
+            document.getElementById("form").submit();
+        }
+    </script>
+
 
 Add Google's JavaScript library to your base template or elsewhere, so it is
 available on the page containing the django form.
