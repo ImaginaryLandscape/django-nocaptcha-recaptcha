@@ -21,23 +21,24 @@ class NoReCaptchaField(forms.CharField):
         'captcha_invalid': _('Incorrect, please try again.')
     }
 
-    def __init__(self, site_key=None, secret_key=None,
-                 gtag_attrs={}, js_params={}, *args, **kwargs):
+    def __init__(self, site_key=settings.NORECAPTCHA_SITE_KEY,
+                 secret_key=settings.NORECAPTCHA_SECRET_KEY,
+                 gtag_attrs=None, js_params=None,
+                 widget=NoReCaptchaWidget, *args, **kwargs):
         """
         site_key = the Google provided site_key
         secret_key = the Google provided secret_key
         gtag_attrs = html input attributes to provide
             to the g-recaptcha tag
         js_params = parameters to passed to the javascript backend
+        widget = NoReCaptchaWidget or InvisibleReCaptchaWidget
 
         See: https://developers.google.com/recaptcha/docs/display
         """
-        site_key = site_key if site_key else \
-            settings.NORECAPTCHA_SITE_KEY
-        self.secret_key = secret_key if secret_key else \
-            settings.NORECAPTCHA_SECRET_KEY
 
-        self.widget = NoReCaptchaWidget(
+        self.secret_key = secret_key
+
+        self.widget = widget(
             site_key=site_key, gtag_attrs=gtag_attrs, js_params=js_params)
         self.required = True
         super(NoReCaptchaField, self).__init__(*args, **kwargs)

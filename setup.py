@@ -8,8 +8,8 @@ def read(fname):
 
 setup(
     name='django-nocaptcha-recaptcha',
-    version='0.0.19',
-    description='Django nocaptcha recaptcha form field/widget app.',
+    version='0.1.0',
+    description='Django reCAPTCHA V2 and invisible reCAPTCHA form field/widget app.',
     long_description=read('README.md'),
     author='Imaginary Landscape',
     author_email='jjasinski@imgescape.com',
