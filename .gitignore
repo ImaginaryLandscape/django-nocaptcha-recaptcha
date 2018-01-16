@@ -46,3 +46,5 @@ docs/_build/
 target/
 *.sqlite3
 pep8.txt
+.eggs
+.ropeproject

@@ -31,4 +31,4 @@ install:
   - pip install -e .
 
 script:
-  - python setup.py test
+  - demo/manage.py test

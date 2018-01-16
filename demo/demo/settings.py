@@ -151,8 +151,6 @@ else:
         os.path.join(PROJECT_ROOT, 'templates'),
     )
 
-    TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
 
 INSTALLED_APPS = (
     'django.contrib.auth',
