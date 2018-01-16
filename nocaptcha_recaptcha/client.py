@@ -2,9 +2,9 @@ import logging
 
 import django
 
-if django.VERSION[1] >= 5:
+try:
     import json
-else:
+except ImportError:
     from django.utils import simplejson as json
 
 from django.conf import settings
