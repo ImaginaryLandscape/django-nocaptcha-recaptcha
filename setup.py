@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name='django-nocaptcha-recaptcha',
-    version='0.0.19',
+    version='0.0.20',
     description='Django nocaptcha recaptcha form field/widget app.',
     long_description=read('README.md'),
     author='Imaginary Landscape',
@@ -18,7 +18,6 @@ setup(
     url='https://github.com/ImaginaryLandscape/django-nocaptcha-recaptcha',
     packages=find_packages(),
     tests_require=[
-        'django-setuptest>=0.1',
         'mock',
     ],
     test_suite="setuptest.setuptest.SetupTestSuite",
@@ -31,6 +30,8 @@ setup(
         "Programming Language :: Python :: 2.6",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
     zip_safe=False,

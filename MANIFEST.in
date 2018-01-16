@@ -3,7 +3,6 @@ include LICENSE
 include README.md
 include MANIFEST.in
 include setup.py
-include test_settings.py
 recursive-include demo *
 recursive-include nocaptcha_recaptcha *
 recursive-exclude * __pycache__

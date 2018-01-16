@@ -1,12 +1,12 @@
 # Django settings for demo project.
 import os
 import sys
+from django import VERSION
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, '..', '..'))
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -94,12 +94,6 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'x$47^-hmv-kaa0trcc*ry%+b^^2f)$rs#cl)6j&!)j2c&h%88e'
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    # 'django.template.loaders.eggs.Loader',
-)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -116,12 +110,47 @@ ROOT_URLCONF = 'demo.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'demo.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'templates'),
-)
+
+if VERSION >= (1, 8, 0):
+
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [
+                os.path.join(PROJECT_ROOT, 'templates'),
+            ],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.contrib.auth.context_processors.auth',
+                    'django.template.context_processors.i18n',
+                    'django.template.context_processors.request',
+                    'django.template.context_processors.media',
+                    'django.template.context_processors.static',
+                    'django.contrib.messages.context_processors.messages',
+                    'example.apps.core.context_processors.site',
+                ],
+            },
+        },
+    ]
+else:
+
+    TEMPLATE_DEBUG = DEBUG
+
+    # List of callables that know how to import templates from various sources.
+    TEMPLATE_LOADERS = (
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+        # 'django.template.loaders.eggs.Loader',
+    )
+
+    TEMPLATE_DIRS = (
+        # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+        # Always use forward slashes, even on Windows.
+        # Don't forget to use absolute paths, not relative paths.
+        os.path.join(PROJECT_ROOT, 'templates'),
+    )
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -136,10 +165,8 @@ INSTALLED_APPS = (
 
     # Only needed for running unit tests
     'nocaptcha_recaptcha',
-    'django_nose',
 )
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
