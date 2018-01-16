@@ -1,16 +1,9 @@
 import os
-import sys
 from setuptools import setup, find_packages
 
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
-
-
-if sys.version_info > (3, 3):
-    django_setuptest = 'python3-django-setuptest'
-else:
-    django_setuptest = 'django-setuptest>=0.1'
 
 
 setup(
@@ -25,7 +18,6 @@ setup(
     url='https://github.com/ImaginaryLandscape/django-nocaptcha-recaptcha',
     packages=find_packages(),
     tests_require=[
-        django_setuptest,
         'mock',
     ],
     test_suite="setuptest.setuptest.SetupTestSuite",

@@ -31,4 +31,4 @@ install:
   - pip install -e .
 
 script:
-  - demo/manage.py test
+  - demo/manage.py test nocaptcha_recaptcha
