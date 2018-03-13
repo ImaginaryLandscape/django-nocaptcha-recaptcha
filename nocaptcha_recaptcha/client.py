@@ -2,10 +2,10 @@ import logging
 
 import django
 
-if django.VERSION[1] >= 5:
-    import json
-else:
+try:
     from django.utils import simplejson as json
+except ImportError:
+    import json
 
 from django.conf import settings
 from django.template.loader import render_to_string
