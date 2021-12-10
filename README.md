@@ -1,5 +1,12 @@
 [![Build Status](https://travis-ci.org/ImaginaryLandscape/django-nocaptcha-recaptcha.svg?branch=master)](https://travis-ci.org/ImaginaryLandscape/django-nocaptcha-recaptcha)
 
+## Deprecated
+
+This project is being deprecated as the original django-recaptcha now contains the same
+functionality, as well as the newer Google reCAPTCHA V2 - Invisible and Google reCAPTCHA V3.
+
+    https://github.com/praekelt/django-recaptcha
+
 # SUMMARY
 
 Add new-style Google ReCaptcha widgets to your Django forms simply by adding a 
